@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+* {
+	box-sizing: content-box;
+	font-family: "Rubik", system-ui, Avenir, Helvetica, Arial, sans-serif;
+	padding: 0;
+	border: 0;
+}
+:root {
+	line-height: 1.5;
+
+	color-scheme: dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #17181f;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}

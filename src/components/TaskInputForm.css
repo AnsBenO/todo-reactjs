@@ -1,0 +1,45 @@
+:root {
+	--item-bg: #0c0c0f;
+	--item-hover: #121216;
+	--item-color: #aaa;
+	--accent-color: #007ca9;
+}
+
+form.taskInputForm {
+	display: flex;
+	justify-content: center;
+	border-radius: 15px;
+	background-color: var(--item-bg);
+	max-width: 600px;
+	margin: auto;
+	height: 50px;
+}
+input.taskInput {
+	padding: 15px;
+	max-width: 600px;
+	min-width: 200px;
+	border: 1px solid transparent;
+	color: var(--item-color);
+	background: none;
+	flex-basis: 90%;
+	border-radius: 0px 15px 15px 0;
+}
+button.addBtn {
+	padding: 15px;
+	width: 50px;
+	border: 1px solid transparent;
+	font-size: 15px;
+	background-color: var(--item-bg);
+	color: var(--item-color);
+	border-radius: 15px 0 0 15px;
+	transition: background-color 0.3s ease;
+}
+
+button.addBtn:hover {
+	background-color: var(--item-hover);
+}
+input:focus,
+button.addBtn:active {
+	outline: none;
+	border: 1px solid var(--accent-color);
+}

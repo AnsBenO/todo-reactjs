@@ -1,0 +1,153 @@
+:root {
+	--item-bg: #0c0c0f;
+	--item-hover: #121216;
+	--item-color: #aaa;
+	--accent-color: #007ca9;
+	--item-bg-lighter: #201f28;
+}
+div.task,
+div.task.completed {
+	display: flex;
+	height: 60px;
+	align-items: center;
+	justify-content: flex-start;
+	max-width: 400px;
+	background-color: var(--item-bg-lighter);
+	color: var(--item-color);
+	margin: auto;
+	position: relative;
+	height: 50px;
+	margin-bottom: 15px;
+	border-radius: 15px;
+	max-width: 600px;
+	transition: background-color 0.3s ease,
+		opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+	animation: fadeIn 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateY(80%) translateX(-70%) rotateZ(60deg);
+	}
+	70% {
+		transform: translateY(5%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) translateX(0) rotateZ(0deg);
+	}
+}
+
+div.task:hover {
+	background-color: var(--item-hover);
+}
+
+.task.completed {
+	color: var(--item-color);
+	opacity: 50%;
+}
+
+input[type="checkbox"] {
+	flex-basis: 10%;
+	width: 40px;
+	height: 20px;
+}
+
+label.checkbox-container {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	color: var(--item-color);
+	height: 100%;
+	flex-basis: 10%;
+}
+
+label.checkbox-container input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+label.checkbox-container .checkmark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 20px;
+	width: 20px;
+	background-color: var(--item-bg-lighter);
+	border: 1px solid var(--accent-color);
+
+	border-radius: 7px;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+label.checkbox-container:hover .checkmark {
+	background-color: var(--item-hover);
+}
+
+label.checkbox-container input[type="checkbox"]:checked + .checkmark {
+	background-color: var(--accent-color);
+	border: 1px solid var(--accent-color);
+}
+
+label.checkbox-container .checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+label.checkbox-container input[type="checkbox"]:checked + .checkmark:after {
+	display: block;
+	left: 6px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+	border: solid var(--item-bg);
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+
+div.task h3 {
+	font-size: 22px;
+	padding-left: 15px;
+	position: relative;
+}
+div.task h3:before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 2px;
+	position: absolute;
+	top: 50%;
+	background-color: var(--item-color);
+	transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+div.task.completed h3:before {
+	width: calc(100% - 15px);
+}
+
+button.delete {
+	position: absolute;
+	left: 100%;
+	transform: translateX(-200%);
+	background: none;
+	color: var(--item-color);
+	cursor: pointer;
+}
+
+form.editForm {
+	height: 100%;
+	background: none;
+}
+
+input.editInput {
+	display: block;
+	height: 100%;
+	width: 100%;
+	background: none;
+	border: 1px solid transparent;
+	font-size: 22px;
+	padding-left: 15px;
+	border: 1px solid var(--accent-color);
+}
