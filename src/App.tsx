@@ -10,12 +10,30 @@ interface Task {
 
 function App() {
 	const [tasks, setTasks] = useState<Task[]>([]);
+
+	const [date, setDate] = useState<string>();
+
 	useEffect(() => {
-		const storedTasks = localStorage.getItem("tasks");
-		if (storedTasks) {
-			const parsedTasks: Task[] = JSON.parse(storedTasks) as Task[];
-			setTasks(parsedTasks);
+		const getStoredTasks = () => {
+			const storedTasks = localStorage.getItem("tasks");
+			if (storedTasks) {
+				const parsedTasks: Task[] = JSON.parse(storedTasks) as Task[];
+				setTasks(parsedTasks);
+			}
 		}
+		function getDate() {
+			const currentDate = new Date();
+			const options: Intl.DateTimeFormatOptions =
+			{
+				weekday: 'short',
+				month: 'short',
+				day: 'numeric',
+				year: 'numeric'
+			};
+			return new Intl.DateTimeFormat('en-US', options).format(currentDate);
+		}
+		setDate(getDate());
+		getStoredTasks();
 	}, []);
 
 	useEffect(() => {
@@ -51,9 +69,9 @@ function App() {
 
 	return (
 		<>
-			<h1 className="couter">{`${tasks.filter((task) => task.done).length}/${
-				tasks.length
-			} Completed Tasks`}</h1>
+			<h3 className="date">{date}</h3>
+			<h1 className="couter">{`${tasks.filter((task) => task.done).length}/${tasks.length
+				} Completed Tasks`}</h1>
 			<TaskInputForm onAdd={addTask} />
 			<ul>
 				{tasks.map((task, index) => (
