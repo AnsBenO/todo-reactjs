@@ -17,6 +17,11 @@ input.taskInput {
 	background: none;
 	flex-basis: 90%;
 	border-radius: 0px 15px 15px 0;
+	transition: border-color .3s ease;
+}
+
+input.taskInput:hover {
+	border-color: var(--item-color);
 }
 
 button.addBtn {
@@ -37,5 +42,5 @@ button.addBtn:hover {
 input:focus,
 button.addBtn:active {
 	outline: none;
-	border: 1px solid var(--accent-color);
+	border: 1px solid var(--accent-color) !important;
 }

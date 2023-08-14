@@ -129,6 +129,7 @@ button.delete {
 	position: absolute;
 	left: 100%;
 	transform: translateX(-200%);
+	font-size: 17px;
 	background: none;
 	color: var(--item-color);
 	cursor: pointer;
@@ -148,4 +149,5 @@ input.editInput {
 	font-size: 18px;
 	padding-left: 15px;
 	border: 1px solid var(--accent-color);
+	border-radius: 10px;
 }
