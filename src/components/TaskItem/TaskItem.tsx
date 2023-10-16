@@ -1,5 +1,5 @@
 import "./TaskItem.css";
-import Checkbox from "../Checkbox";
+import Checkbox from "../Checkbox/Checkbox";
 import { useState } from "react";
 
 interface TaskItemProps {
