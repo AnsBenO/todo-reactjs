@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import TaskInputForm from "./components/TaskInputForm";
-import TaskItem from "./components/TaskItem";
+import TaskInputForm from "./components/TaskInputForm/TaskInputForm";
+import TaskItem from "./components/TaskItem/TaskItem";
 
 interface Task {
 	name: string;
@@ -69,22 +69,26 @@ function App() {
 
 	return (
 		<>
-			<h3 className="date">{date}</h3>
-			<h1 className="couter">{`${tasks.filter((task) => task.done).length}/${tasks.length
-				} Completed Tasks`}</h1>
-			<TaskInputForm onAdd={addTask} />
-			<ul>
-				{tasks.map((task, index) => (
-					<TaskItem
-						key={index}
-						title={task.name}
-						done={task.done}
-						onCheck={() => handleTaskItemClick(index)}
-						onDelete={() => handleDelete(index)}
-						onUpdate={(newName) => updateTask(index, newName)}
-					/>
-				))}
-			</ul>
+			<div className="container">
+
+
+				<h3 className="date">{date}</h3>
+				<h1 className="couter">{`${tasks.filter((task) => task.done).length}/${tasks.length
+					} Completed Tasks`}</h1>
+				<TaskInputForm onAdd={addTask} />
+				<ul>
+					{tasks.map((task, index) => (
+						<TaskItem
+							key={index}
+							title={task.name}
+							done={task.done}
+							onCheck={() => handleTaskItemClick(index)}
+							onDelete={() => handleDelete(index)}
+							onUpdate={(newName) => updateTask(index, newName)}
+						/>
+					))}
+				</ul>
+			</div>
 		</>
 	);
 }

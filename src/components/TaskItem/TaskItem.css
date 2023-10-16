@@ -74,7 +74,7 @@ label.checkbox-container .checkmark {
 	background-color: var(--item-bg-lighter);
 	border: 1px solid var(--accent-color);
 
-	border-radius: 7px;
+	border-radius: 50%;
 	transform: translateY(-50%) translateX(-50%);
 }
 
